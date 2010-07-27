@@ -56,6 +56,9 @@ Some of the helpers this bash script adds:
 - whatamipushing: opens gitk. the green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
 - remotediff: fetch and open gitk.  The green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
 
+## Diff tool
+There are too many of these to list. [Meld](http://meld.sourceforge.net) is great for unix.  [Kaleidoscope](http://www.kaleidoscopeapp.com/) for OSX if you dont mind paying (free trial).
+
 ## Day to day
 - `freebase` to get any changes
     - Got conflicts?  
@@ -68,12 +71,25 @@ Some of the helpers this bash script adds:
     - No conflict?
          - You win.
          - Almost always the case when several people aren't making big changes to the same code.
+- Do work.
+- `git add <path>` to add new files
+- `git commit` to save state locally
+- `freebase` to make sure nothing has changed on the remote before we push
+- `git push` to send your changes to the remote
 
 ## Rebasing vs pulling
 
 ## Merging
 
-## Diff tool
+Resolving merge conflicts:
+
+- Files in conflict after a merge will be shown by `git status` in red and listed as both modified.
+- Resolve the conflicts in each file
+- Run `git add <file-path>` for each file that was in conflict
+- `git commit` to commit the resolved conflict state
+- `git push` to push the changes to the remote.
+
+
 
 ## Synchronize View
 - `git fetch && gitk --all &`
