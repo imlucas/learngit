@@ -77,9 +77,21 @@ There are too many of these to list. [Meld](http://meld.sourceforge.net) is grea
 - `freebase` to make sure nothing has changed on the remote before we push
 - `git push` to send your changes to the remote
 
-## Rebasing vs pulling
+## Freebase vs Pull
+`git pull` is  `git fetch` and then `git merge` to apply the changes from the remote.  `freebase` is `git fetch` and then `git rebase remotes/origin/<branch-name>`.  Freebase will interleave your changes with any remote changes.  Pull will use merge to combine your local changes and the remote changes.  It is highly preferable to use `freebase` over `pull` as it makes the history much cleaner and easier to visualize, but you can always just use `pull`.   
 
 ## Merging
+Say we want to merge `featureA` branch into `master`.
+
+    git checkout master
+    freebase
+    git checkout featureA
+    freebase
+    git merge master
+    # resolve any conflicts
+    git push origin featureA
+    git checkout master
+    git merge featureA
 
 Resolving merge conflicts:
 
@@ -88,8 +100,6 @@ Resolving merge conflicts:
 - Run `git add <file-path>` for each file that was in conflict
 - `git commit` to commit the resolved conflict state
 - `git push` to push the changes to the remote.
-
-
 
 ## Synchronize View
 - `git fetch && gitk --all &`
