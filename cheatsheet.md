@@ -49,6 +49,7 @@ Open your `~/.gitconfig` file and add the following:
 - SmartGit: `git fetch` then `Query -> Log` from the file menu
 
 ## Bash Aliases
+Copy and paste the below into your shell.
 
     cd ~/ && git clone git://gist.github.com/114160.git .githelper && echo "# Add me to your .profile or .bash_profile.  Save the file, open a new terminal, and you'll have all of this." && echo "" && echo "source ~/.githelper/gistfile1.sh"
 
