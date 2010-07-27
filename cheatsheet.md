@@ -50,11 +50,11 @@ Copy and paste the below into your shell.
 
 Some of the helpers this bash script adds:
 
-- freebase, f: Fetch and rebase the current branch (update)
-- commit, c: Create a new commit of all changes files (git commit -a)
-- push, p: push local commits to the remote repository
-- whatamipushing: opens gitk. the green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
-- remotediff: fetch and open gitk.  The green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
+- `freebase`, `f`: Fetch and rebase the current branch (update)
+- `commit`, `c`: Create a new commit of all changes files (git commit -a)
+- `push`, `p`: push local commits to the remote repository
+- `whatamipushing`: opens gitk. the green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
+- `remotediff`: fetch and open gitk.  The green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
 
 ## Diff tool
 There are too many of these to list. [Meld](http://meld.sourceforge.net) is great for unix.  [Kaleidoscope](http://www.kaleidoscopeapp.com/) for OSX if you dont mind paying (free trial).
