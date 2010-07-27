@@ -102,6 +102,8 @@ Copy and paste the below into your shell.
     cd ~/ && git clone git://gist.github.com/114160.git .githelper && echo "# Add me to your .profile or .bash_profile.  Save the file, open a new terminal, and you'll have all of this." && echo "" && echo "source ~/.githelper/gistfile1.sh"
 
 ## Resources
+
+### Cheat Sheets
 - [cheat git](http://cheat.errtheblog.com/s/git)
 - [Zack Rusin](www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf)
 - [Jan Krüger](http://jan-krueger.net/development/git-cheat-sheet-extended-edition)
