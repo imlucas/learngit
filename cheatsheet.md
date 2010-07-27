@@ -48,6 +48,10 @@ Open your `~/.gitconfig` file and add the following:
 - `git fetch && gitx`
 - SmartGit: `git fetch` then `Query -> Log` from the file menu
 
+## Bash Aliases
+
+    cd ~/ && git clone git://gist.github.com/114160.git .githelper && echo "# Add me to your .profile or .bash_profile.  Save the file, open a new terminal, and you'll have all of this." && echo "" && echo "source ~/.githelper/gistfile1.sh"
+
 ## Resources
 - [cheat git](http://cheat.errtheblog.com/s/git)
 - [Zack Rusin](www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf)
@@ -55,4 +59,3 @@ Open your `~/.gitconfig` file and add the following:
 - [Windows 7 Gadget](http://github.com/Tigraine/git-cheatsheet-gadget)
 
 [There are millions of these](http://www.google.com/search?q=git+cheatsheet).  Find the style that fits your workflow best.  Most are very good, except those that mention nothing about fetch and rebase.
-
