@@ -34,6 +34,7 @@ Open your `~/.gitconfig` file and add the following:
         whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 ### GUI's
+- [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk) Comes with git.  You will use this a lot. [Good intro here](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk).
 - [SmartGit](http://www.syntevo.com/smartgit/index.html): Commercial, All Platforms
 - [GitX](http://github.com/downloads/brotherbard/gitx/GitX%207-5-2010.zip): OSX only
 - [gitg](http://github.com/jessevdk/gitg): GNOME/gtk+ clone of GitX
@@ -42,6 +43,37 @@ Open your `~/.gitconfig` file and add the following:
 - [TortoiseGit](http://code.google.com/p/tortoisegit/) Just like TortoiseSVN, Windows
 - [StupidGit](http://wiki.github.com/gyim/stupidgit/) Really strong submodule support, All Platforms
 
+## Bash Aliases
+Copy and paste the below into your shell.
+
+    cd ~/ && git clone git://gist.github.com/114160.git .githelper && echo "# Add me to your .profile or .bash_profile.  Save the file, open a new terminal, and you'll have all of this." && echo "" && echo "source ~/.githelper/gistfile1.sh"
+
+Some of the helpers this bash script adds:
+
+- freebase, f: Fetch and rebase the current branch (update)
+- commit, c: Create a new commit of all changes files (git commit -a)
+- push, p: push local commits to the remote repository
+- whatamipushing: opens gitk. the green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
+- remotediff: fetch and open gitk.  The green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
+
+## Day to day
+- `freebase` to get any changes
+    - Got conflicts?  
+         - `git rebase --abort && git pull;`
+    - Still have conflicts? 
+         - Resolve them in each file
+         - Run `git add <file-path>` for each file that was in conflict
+         - `git commit` to commit the resolved conflict state
+         - `git push` to push the changes to the remote.
+    - No conflict?
+         - You win.
+         - Almost always the case when several people aren't making big changes to the same code.
+
+## Rebasing vs pulling
+
+## Merging
+
+## Diff tool
 
 ## Synchronize View
 - `git fetch && gitk --all &`
