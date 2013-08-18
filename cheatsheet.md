@@ -36,7 +36,7 @@ Open your `~/.gitconfig` file and add the following:
 ### GUI's
 - [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk) Comes with git.  You will use this a lot. [Good intro here](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk).
 - [SmartGit](http://www.syntevo.com/smartgit/index.html): Commercial, All Platforms
-- [GitX](http://github.com/downloads/brotherbard/gitx/GitX%207-5-2010.zip): OSX only
+- [GitX](https://github.com/downloads/brotherbard/gitx/GitX%20Nov-17-2010.zip): OSX only
 - [gitg](http://github.com/jessevdk/gitg): GNOME/gtk+ clone of GitX
 - [git-cola](http://cola.tuxfamily.org/): Really powerful, Linux only
 - [qgit](http://digilander.libero.it/mcostalba/): QT based, All Platforms
