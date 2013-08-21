@@ -1,6 +1,7 @@
 # Cheatsheet
 
 ## Setup
+
 Open your `~/.gitconfig` file and add the following:
 
     [github]
@@ -32,6 +33,8 @@ Open your `~/.gitconfig` file and add the following:
     
     [core]
         whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+Git is extremely customizable.  You should definitely have a look of the [config chapter in the git book](http://git-scm.com/book/en/Customizing-Git-Git-Configuration).
 
 ### GUI's
 - [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk) Comes with git.  You will use this a lot. [Good intro here](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk).
