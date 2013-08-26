@@ -43,6 +43,26 @@ git is extremely customizable.
 you should definitely have a look of the
 [config chapter in the git book](http://git-scm.com/book/en/Customizing-Git-Git-Configuration).
 
+this is your global configuration file and will make sure you have sane
+defaults everywhere.  i recommend setting your default's for name, username and
+email to what you use when contributing to open source.  for work repos,
+i recommend setting your information to be your work email either by editing
+the `.git/config` to be
+
+    [user]
+        name = <your more official work name>
+        email = <your work email address>
+
+you can also just do that from the command line
+
+    cd <my project dir>;
+    git config <your more official work name>;
+    git config <your work email address>;
+
+
+in general, if you see a docs that say to use `git config --global` for something,
+just don't.
+
 ## gui's
 
 ### recommended
