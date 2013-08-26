@@ -63,26 +63,6 @@ you can also just do that from the command line
 in general, if you see a docs that say to use `git config --global` for something,
 just don't.
 
-## gui's
-
-### recommended
-
- * mac
-    * [GitX](https://github.com/downloads/brotherbard/gitx/GitX%20Nov-17-2010.zip)
-    * [GitHub](http://mac.github.com/)
- * windows
-    * [GitHub](http://windows.github.com/)
- * nix
-    * [gitg](http://github.com/jessevdk/gitg) GNOME/gtk+ clone of GitX
-    * [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk)
-
-### others
-- [git-cola](http://cola.tuxfamily.org/): Really powerful, Linux only
-- [SmartGit](http://www.syntevo.com/smartgit/index.html): Commercial, All Platforms
-- [qgit](http://digilander.libero.it/mcostalba/): QT based, All Platforms
-- [TortoiseGit](http://code.google.com/p/tortoisegit/) Just like TortoiseSVN, Windows
-- [StupidGit](http://wiki.github.com/gyim/stupidgit/) Really strong submodule support, All Platforms
-
 ## command line
 
 copy and paste the below into your shell
@@ -104,11 +84,31 @@ prompt.
  * `newbranch <name>`: create a new branch from current `== git pull --rebase && git checkout -t origin/<name>`
  * `deletebranch <name>`: delete a branch locallay.  don't worry, it will prompt you before actually deleting `== git branch -d <name>`
 
+## gui's
 
-## diff tools
-There are too many of these to list. [Meld](http://meld.sourceforge.net) is great for unix.  [Kaleidoscope](http://www.kaleidoscopeapp.com/) for OSX.
+### recommended
 
-## day to day
+ * mac
+    * [GitX](https://github.com/downloads/brotherbard/gitx/GitX%20Nov-17-2010.zip)
+    * [GitHub](http://mac.github.com/)
+ * windows
+    * [GitHub](http://windows.github.com/)
+ * nix
+    * [gitg](http://github.com/jessevdk/gitg) GNOME/gtk+ clone of GitX
+    * [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk)
+
+### others
+- [git-cola](http://cola.tuxfamily.org/): Really powerful, Linux only
+- [SmartGit](http://www.syntevo.com/smartgit/index.html): Commercial, All Platforms
+- [qgit](http://digilander.libero.it/mcostalba/): QT based, All Platforms
+- [TortoiseGit](http://code.google.com/p/tortoisegit/) Just like TortoiseSVN, Windows
+- [StupidGit](http://wiki.github.com/gyim/stupidgit/) Really strong submodule support, All Platforms
+
+### diff tools
+
+there are too many of these to list. [meld](http://meld.sourceforge.net) is great for unix.  [Kkleidoscope](http://www.kaleidoscopeapp.com/) for mac.
+
+## day-to-day workflow
  * `f` to get any changes
     * got conflicts?
          - `git rebase --abort && git pull;`
@@ -126,7 +126,7 @@ There are too many of these to list. [Meld](http://meld.sourceforge.net) is grea
  * `f` to make sure nothing has changed on the remote before we push
  * `p` to send your changes to the remote
 
-## freebase vs pull
+### a note on freebase vs pull
 `git pull` is  `git fetch` and then `git merge` to apply the changes from the
 remote.  `freebase` is `git fetch` and then
 `git rebase remotes/origin/<branch-name>`.
@@ -174,7 +174,7 @@ way to get the same info from the command line
  * `git fetch && gitx`
  * SmartGit: `git fetch` then `Query -> Log` from the file menu
 
-## Resources
+## resources
  * [github flow](http://scottchacon.com/2011/08/31/github-flow.html) walkthrough of github's process
  * [gitflow](http://nvie.com/posts/a-successful-git-branching-model/)
  * [cheat git](http://cheat.errtheblog.com/s/git)
