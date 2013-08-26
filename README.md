@@ -1,12 +1,16 @@
-# Cheatsheet
+# git cheatsheet
 
-## Setup
+these are notes and tricks i've collected over the years when teaching
+people to use git for the first time or making them more productive.
+git is a pretty serious tool that can make your day-to-day process
+really smooth and simple if you know how to bend it in a few ways.
 
-Open your `~/.gitconfig` file and add the following:
+## setup
+
+Open your `~/.gitconfig` file and add the following
 
     [github]
     	user = <your-github-username>
-    	token = <your-github-api-token>
     [user]
     	name = <your-full-name>
     	email = <your-email-address>
@@ -30,96 +34,134 @@ Open your `~/.gitconfig` file and add the following:
         added = yellow
         changed = green
         untracked = cyan
-    
+
     [core]
         whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
-Git is extremely customizable.  You should definitely have a look of the [config chapter in the git book](http://git-scm.com/book/en/Customizing-Git-Git-Configuration).
+the settings above will give you a really nice start to using git effecitively.
+git is extremely customizable.
+you should definitely have a look of the
+[config chapter in the git book](http://git-scm.com/book/en/Customizing-Git-Git-Configuration).
 
-### GUI's
-- [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk) Comes with git.  You will use this a lot. [Good intro here](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk).
-- [SmartGit](http://www.syntevo.com/smartgit/index.html): Commercial, All Platforms
-- [GitX](https://github.com/downloads/brotherbard/gitx/GitX%20Nov-17-2010.zip): OSX only
-- [gitg](http://github.com/jessevdk/gitg): GNOME/gtk+ clone of GitX
+## gui's
+
+### recommended
+
+ * mac
+    * [GitX](https://github.com/downloads/brotherbard/gitx/GitX%20Nov-17-2010.zip)
+    * [GitHub](http://mac.github.com/)
+ * windows
+    * [GitHub](http://windows.github.com/)
+ * nix
+    * [gitg](http://github.com/jessevdk/gitg) GNOME/gtk+ clone of GitX
+    * [gitk](http://stackoverflow.com/questions/1570535/guide-to-understanding-gitk)
+
+### others
 - [git-cola](http://cola.tuxfamily.org/): Really powerful, Linux only
+- [SmartGit](http://www.syntevo.com/smartgit/index.html): Commercial, All Platforms
 - [qgit](http://digilander.libero.it/mcostalba/): QT based, All Platforms
 - [TortoiseGit](http://code.google.com/p/tortoisegit/) Just like TortoiseSVN, Windows
 - [StupidGit](http://wiki.github.com/gyim/stupidgit/) Really strong submodule support, All Platforms
 
-## Bash Aliases
-Copy and paste the below into your shell.
+## command line
 
-    cd ~/ && git clone git://gist.github.com/114160.git .githelper && echo "# Add me to your .profile or .bash_profile.  Save the file, open a new terminal, and you'll have all of this." && echo "" && echo "source ~/.githelper/gistfile1.sh"
+copy and paste the below into your shell
 
-Some of the helpers this bash script adds:
+    cd ~/;
+    git clone git://gist.github.com/114160.git .githelper;
+    echo "source ~/.githelper/gistfile1.sh" >> ~/.profile;
+    source ~/.profile;
 
-- `freebase`, `f`: Fetch and rebase the current branch (update)
-- `commit`, `c`: Create a new commit of all changes files (git commit -a)
-- `push`, `p`: push local commits to the remote repository
-- `whatamipushing`: opens gitk. the green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
-- `remotediff`: fetch and open gitk.  The green rectangle with your branch name is where you are.  The orange and green rectangle is where the remote is.
+this will make your life better.  it adds several shortcuts to simplify the process as well as adding extra arguments to your
+commands to remove some of the most common gotchas.  this script
+will also add the current repo and branch to your command line
+prompt.
 
-## Diff tool
-There are too many of these to list. [Meld](http://meld.sourceforge.net) is great for unix.  [Kaleidoscope](http://www.kaleidoscopeapp.com/) for OSX if you dont mind paying (free trial).
+ * `freebase`, `f`: fetch and rebase the current branch `== git pull --rebase`
+ * `commit`, `c`: create a new commit of all changes files `== git commit -a`
+ * `push`, `p`: push local commits to the remote repository `== git push origin <current_branch_name>`
+ * `status`, `s`: `== git status`
+ * `newbranch <name>`: create a new branch from current `== git pull --rebase && git checkout -t origin/<name>`
+ * `deletebranch <name>`: delete a branch locallay.  don't worry, it will prompt you before actually deleting `== git branch -d <name>`
 
-## Day to day
-- `freebase` to get any changes
-    - Got conflicts?  
+
+## diff tools
+There are too many of these to list. [Meld](http://meld.sourceforge.net) is great for unix.  [Kaleidoscope](http://www.kaleidoscopeapp.com/) for OSX.
+
+## day to day
+ * `f` to get any changes
+    * got conflicts?
          - `git rebase --abort && git pull;`
-    - Still have conflicts? 
-         - Resolve them in each file
-         - Run `git add <file-path>` for each file that was in conflict
-         - `git commit` to commit the resolved conflict state
-         - `git push` to push the changes to the remote.
-    - No conflict?
-         - You win.
-         - Almost always the case when several people aren't making big changes to the same code.
-- Do work.
-- `git add <path>` to add new files
-- `git commit` to save state locally
-- `freebase` to make sure nothing has changed on the remote before we push
-- `git push` to send your changes to the remote
+    * still have conflicts?
+         * resolve them in each file
+         * run `add <file-path>` for each file that was in conflict
+         * `c` to commit the resolved conflict state
+         * `p` to push the changes to the remote
+    * no conflicts?
+         * you win.
+         * almost always the case when several people aren't making big changes to the same code
+ * do work
+ * `a <path>` to add new files
+ * `c` to save state locally
+ * `f` to make sure nothing has changed on the remote before we push
+ * `p` to send your changes to the remote
 
-## Freebase vs Pull
-`git pull` is  `git fetch` and then `git merge` to apply the changes from the remote.  `freebase` is `git fetch` and then `git rebase remotes/origin/<branch-name>`.  Freebase will interleave your changes with any remote changes.  Pull will use merge to combine your local changes and the remote changes.  It is highly preferable to use `freebase` over `pull` as it makes the history much cleaner and easier to visualize, but you can always just use `pull`.   
+## freebase vs pull
+`git pull` is  `git fetch` and then `git merge` to apply the changes from the
+remote.  `freebase` is `git fetch` and then
+`git rebase remotes/origin/<branch-name>`.
+freebase will interleave your changes with any remote changes.
+pull will use merge to combine your local changes and the remote changes.
+it is highly preferable to use `freebase` over `pull` as it makes the history
+much cleaner and easier to visualize, but you can always just use `pull`.
 
-## Merging
-Say we want to merge `featureA` branch into `master`.
+## merging
 
-    git checkout master
-    freebase
-    git checkout featureA
-    freebase
-    git merge master
+### integration
+
+say we want to merge `featureA` branch into `master`:
+
+    checkout master;
+    f;
+    checkout featureA;
+    f;
+    git merge master;
     # resolve any conflicts
-    git push origin featureA
-    git checkout master
-    git merge featureA
+    p;
+    checkout master;
+    git merge featureA;
+    p;
 
-Resolving merge conflicts:
+@todo (lucas) add integrate `<feature_branch>` into `<branch>` alias
 
-- Files in conflict after a merge will be shown by `git status` in red and listed as both modified.
-- Resolve the conflicts in each file
-- Run `git add <file-path>` for each file that was in conflict
-- `git commit` to commit the resolved conflict state
-- `git push` to push the changes to the remote.
+### resolving merge conflicts
 
-## Synchronize View
-- `git fetch && gitk --all &`
-- `git fetch && gitx`
-- SmartGit: `git fetch` then `Query -> Log` from the file menu
+github has [great documentation for dealing with merge conflicts](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line)
+but in general the workflow goes like this
 
-## Bash Aliases
-Copy and paste the below into your shell.
+ * files in conflict will be shown by `status` in red and listed as both modified
+ * resolve the conflicts in each file
+ * `add <file-path>` for each file that was in conflict
+ * `c` to commit the resolved conflict state
+ * `p` to push the changes to the remote.
 
-    cd ~/ && git clone git://gist.github.com/114160.git .githelper && echo "# Add me to your .profile or .bash_profile.  Save the file, open a new terminal, and you'll have all of this." && echo "" && echo "source ~/.githelper/gistfile1.sh"
+## synchronize view
+
+if you are used to using the synchronize view in eclipse a lot, here's a simple
+way to get the same info from the command line
+
+ * `git fetch && gitk --all &`
+ * `git fetch && gitx`
+ * SmartGit: `git fetch` then `Query -> Log` from the file menu
 
 ## Resources
+ * [github flow](http://scottchacon.com/2011/08/31/github-flow.html) walkthrough of github's process
+ * [gitflow](http://nvie.com/posts/a-successful-git-branching-model/)
+ * [cheat git](http://cheat.errtheblog.com/s/git)
+ * [Zack Rusin](www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf)
+ * [Jan Krüger](http://jan-krueger.net/development/git-cheat-sheet-extended-edition)
+ * [Windows 7 Gadget](http://github.com/Tigraine/git-cheatsheet-gadget)
 
-### Cheat Sheets
-- [cheat git](http://cheat.errtheblog.com/s/git)
-- [Zack Rusin](www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf)
-- [Jan Krüger](http://jan-krueger.net/development/git-cheat-sheet-extended-edition)
-- [Windows 7 Gadget](http://github.com/Tigraine/git-cheatsheet-gadget)
-
-[There are millions of these](http://www.google.com/search?q=git+cheatsheet).  Find the style that fits your workflow best.  Most are very good, except those that mention nothing about fetch and rebase.
+[there are millions of these](http://www.google.com/search?q=git+cheatsheet).
+find the style that fits your workflow best.
+most are very good, except those that mention nothing about fetch and rebase.
